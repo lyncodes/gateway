@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    application:
+      name: GateWay
+    gateway:
+      routes:
+        - id: hello
+          uri: http://localhost:9000
+          predicates:
+            - Path=/hello/**
+server:
+  port: 8220
