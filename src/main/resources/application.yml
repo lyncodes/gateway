@@ -1,7 +1,7 @@
 spring:
   application:
     name: gateway
-#    服务注册到eureka,需要一个application name
+  #    服务注册到eureka,需要一个application name
   cloud:
     gateway:
       discovery:
@@ -13,6 +13,9 @@ spring:
           uri: http://localhost:9000
           predicates:
             - Path=/hello/**
+          filters:
+            - AddRequestParameter=key,value
+            - AddRequestHeader=key,value
 server:
   port: 8220
 
@@ -24,3 +27,6 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://node1:8081/eureka/,http://node1:8082/eureka/,http://node1:8082/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
