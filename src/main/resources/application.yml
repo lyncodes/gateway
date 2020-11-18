@@ -16,6 +16,7 @@ spring:
           filters:
             - AddRequestParameter=key,value
             - AddRequestHeader=key,value
+            - AddResponseHeader=resp,response
 server:
   port: 8220
 
